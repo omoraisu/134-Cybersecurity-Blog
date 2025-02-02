@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="about-us">
+        <h1>Who We Are</h1>
+        <h2>Our Slogan</h2>
+        <p>What we aim to do...</p>
+    </section>
+
+    <section class="blog-posts">
+        <h2>Blog Posts</h2>
+        <div class="post-grid">
+            {% for post in object_list %}
+                <a href="{% url 'post_detail' post.slug %}" class="post-card">
+                    <div class="post-image">
+                        <img src="{{ post.banner_image.url }}" alt="{{ post.title }}">
+                    </div>
+                    <div class="post-title">
+                        <h3>{{ post.title }}</h3>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

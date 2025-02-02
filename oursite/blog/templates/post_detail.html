@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <article class="post-detail">
+        <div class="banner">
+            <img src="{{ post.banner_image.url }}" alt="{{ post.title }}">
+        </div>
+        <h1>{{ post.title }}</h1>
+        <p class="date">Date Created: {{ post.created_on }}</p>
+        <div class="content">
+            {{ post.text_content }}
+        </div>
+    </article>
+{% endblock %}
