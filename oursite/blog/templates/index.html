@@ -22,6 +22,26 @@
     <section class="blog-posts" style="background: url('{% static 'blog/images/Frame 59.svg' %}') no-repeat center center; background-size: cover;">
         <div class="container">
             <h2 class="medium-font fw-bold">Blog Posts</h2>
+            <div class="post-grid my-5">
+                {% for post in object_list %}
+                    <a href="{% url 'post_detail' post.slug %}" class="post-card">
+                        <div class="post-image">
+                            <img src="{% static 'blog/images/Frame 60.svg' %}" alt="{{ post.title }}">
+                        </div>
+                        <div class="post-title">
+                            <h3 class="normal-font">{{ post.title }}</h3>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- IF CAROUSEL -->
+
+    <!-- <section class="blog-posts" style="background: url('{% static 'blog/images/Frame 59.svg' %}') no-repeat center center; background-size: cover;">
+        <div class="container">
+            <h2 class="medium-font fw-bold">Blog Posts</h2>
             
             <div class="swiper-container" style="overflow: hidden;">
                 <div class="swiper-wrapper" style="display: flex; flex-direction: row;">
@@ -76,5 +96,5 @@
                 }
             });
         });
-    </script>
+    </script> -->
 {% endblock %}

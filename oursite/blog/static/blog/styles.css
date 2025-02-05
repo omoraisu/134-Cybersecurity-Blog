@@ -140,7 +140,8 @@ footer {
 }
 
 .card {
-    border: 1px solid #ddd;
+    border: none;
+    outline: none;
     border-radius: 8px;
     overflow: hidden;
     text-align: center;
@@ -148,7 +149,7 @@ footer {
 
 .card img {
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
 }
 
