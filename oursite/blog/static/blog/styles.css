@@ -1,6 +1,7 @@
 /* General Styles */
 
 @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;600;700&display=swap');
 
 body {
     font-family: 'Albert Sans', sans-serif;
@@ -30,15 +31,22 @@ header {
     border-radius: 25px;
 }
 
+.custom-navbar .nav-link:hover {
+    background-color: #217297;
+    color: white;
+}
+
 .nav-link.active {
     background-color: #217297 !important;  /* Mid-blue */
 }
 
 .about-us {
-    height: 90vh;
+    height: 105vh;
     justify-content: center;
     text-align: center;
     background-color: #f4f4f4; /* Optional: Adjust background color */
+    position: relative;
+    z-index: 1;
 }
 
 .about-us .title {
@@ -51,15 +59,22 @@ header {
 }
 
 .medium-font {
+    font-family: 'Urbanist', sans-serif;
     font-size: 3em;
 }
 
 .normal-font {
+    font-family: 'Urbanist', sans-serif;
     font-size: 1.2em;
 }
 
 .blog-posts {
-    padding: 20px;
+    padding: 80px 0;
+    color: white;
+    height: 105vh;
+    border-radius: 50px;
+    position: relative;
+    z-index: 2;
 }
 
 .post-grid {
@@ -71,7 +86,8 @@ header {
 .post-card {
     text-decoration: none;
     color: inherit;
-    border: 1px solid #ddd;
+    border: none;
+    outline: none;
     border-radius: 8px;
     overflow: hidden;
     transition: transform 0.3s ease;
@@ -83,7 +99,7 @@ header {
 
 .post-image img {
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -112,7 +128,7 @@ header {
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #333;
+    background-color: white;
     color: #fff;
 }
 

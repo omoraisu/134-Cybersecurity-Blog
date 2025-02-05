@@ -4,32 +4,77 @@
 
 {% block content %}
     <section class="about-us">
-        <div class="flex-col">
-            <h1 class="title lh-1">
-                <span style="color: #4682B4;">Human Factors</span> <br>
-                in Computer Security
-            </h1>            
-        </div>
-        <div class="quote flex-col">
-            <p class="pt-5 text-start normal-font lh-1">Security is only as strong as its weakest link—often, the <span class="normal-font fw-bold">human element</span></p>
-            <img src="{% static 'blog/images/Group 12.svg' %}" alt="SVG Image" class="img-fluid">
-            <p class="pr-5 text-end normal-font lh-1">Understanding the <br> <span class="medium-font fw-bold">Human Behavior</span> <br> in Cybersecurity Threats</p>
+        <div class="container">
+            <div class="flex-col">
+                <h1 class="title lh-1">
+                    <span style="color: #4682B4;">Human Factors</span> <br>
+                    in Computer Security
+                </h1>            
+            </div>
+            <div class="quote d-flex align-items-top justify-content-between mt-5 container">
+                <p class="pt-5 text-start normal-font lh-1 w-25"><span class="medium-font fw-bold">"<br></span>Security is only as strong as its weakest link—often, the <span class="normal-font fw-bold">human element</span></p>
+                <img src="{% static 'blog/images/Group 12.svg' %}" alt="SVG Image" class="img-fluid">
+                <p class="pt-5 text-end normal-font lh-1 w-25">Understanding the <br> <span class="medium-font fw-bold">Human Behavior</span> <br> in Cybersecurity Threats</p>
+            </div>
         </div>
     </section>
 
-    <section class="blog-posts">
-        <h2>Blog Posts</h2>
-        <div class="post-grid">
-            {% for post in object_list %}
-                <a href="{% url 'post_detail' post.slug %}" class="post-card">
-                    <div class="post-image">
-                        <img src="{{ post.banner_image.url }}" alt="{{ post.title }}">
-                    </div>
-                    <div class="post-title">
-                        <h3>{{ post.title }}</h3>
-                    </div>
-                </a>
-            {% endfor %}
+    <section class="blog-posts" style="background: url('{% static 'blog/images/Frame 59.svg' %}') no-repeat center center; background-size: cover;">
+        <div class="container">
+            <h2 class="medium-font fw-bold">Blog Posts</h2>
+            
+            <div class="swiper-container" style="overflow: hidden;">
+                <div class="swiper-wrapper" style="display: flex; flex-direction: row;">
+                    {% for post in object_list %}
+                        <div class="swiper-slide" style="flex: 0 0 auto; width: 25%;">
+                            <a href="{% url 'post_detail' post.slug %}" class="post-card">
+                                <div class="post-image">
+                                    <img src="{% static 'blog/images/Frame 60.svg' %}" alt="{{ post.title }}">
+                                </div>
+                                <div class="post-title">
+                                    <h3>{{ post.title }}</h3>
+                                </div>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+                
+                <!-- Navigation buttons -->
+                <div class="swiper-button-prev" style="color: white;"></div>
+                <div class="swiper-button-next" style="color: white;"></div>
+
+                <!-- Pagination -->
+                <div class="swiper-pagination" style="color: white;"></div>
+            </div>
         </div>
     </section>
+
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    
+    <!-- Swiper.js Script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var swiper = new Swiper(".swiper-container", {
+                direction: 'horizontal',
+                slidesPerView: 4,
+                spaceBetween: 20,
+                loop: true,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                breakpoints: {
+                    1024: { slidesPerView: 4 },
+                    768: { slidesPerView: 2 },
+                    480: { slidesPerView: 1 },
+                }
+            });
+        });
+    </script>
 {% endblock %}
