@@ -1,6 +1,9 @@
 /* General Styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;600&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Albert Sans', sans-serif;
     margin: 0;
     padding: 0px;
 }
@@ -11,21 +14,49 @@ header {
     background-color: #f4f4f4;
 }
 
-.logo img {
-    max-width: 150px;
+.custom-navbar {
+    background-color: #171717;
+    border-radius: 50px;
+}
+
+.w-45 {
+    width: 45%;
+}
+
+.custom-navbar .nav-link {
+    color: white;
+    padding: 17px 40px;
+    margin: 8px 10px; 
+    border-radius: 25px;
+}
+
+.nav-link.active {
+    background-color: #217297 !important;  /* Mid-blue */
 }
 
 .about-us {
     height: 90vh;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
     text-align: center;
-    padding: 20px 20px;
     background-color: #f4f4f4; /* Optional: Adjust background color */
 }
 
+.about-us .title {
+    font-size: 5em;
+    font-weight: 600;
+}
+
+.quote {
+    display: flex;
+}
+
+.medium-font {
+    font-size: 3em;
+}
+
+.normal-font {
+    font-size: 1.2em;
+}
 
 .blog-posts {
     padding: 20px;
