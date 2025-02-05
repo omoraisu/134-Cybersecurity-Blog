@@ -12,7 +12,7 @@ body {
 header {
     text-align: center;
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: white;
 }
 
 .custom-navbar {
@@ -41,10 +41,10 @@ header {
 }
 
 .about-us {
-    height: 105vh;
+    height: 102vh;
     justify-content: center;
     text-align: center;
-    background-color: #f4f4f4; /* Optional: Adjust background color */
+    background-color: white;
     position: relative;
     z-index: 1;
 }
@@ -129,7 +129,6 @@ footer {
     text-align: center;
     padding: 20px;
     background-color: white;
-    color: #fff;
 }
 
 .creator-cards {

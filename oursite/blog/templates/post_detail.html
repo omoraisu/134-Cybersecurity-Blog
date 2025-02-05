@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <article class="post-detail">
+    <article class="post-detail container">
         <div class="banner">
             <img src="{{ post.banner_image.url }}" alt="{{ post.title }}">
         </div>
-        <h1>{{ post.title }}</h1>
-        <p class="date">Date Created: {{ post.created_on }}</p>
-        <div class="content">
+        <h1 class="medium-font fw-bold" style="color: #344054">{{ post.title }}</h1>
+        <p class="date normal-font">Date Created: {{ post.created_on }}</p>
+        <div class="content normal-font">
             {{ post.text_content }}
         </div>
     </article>
