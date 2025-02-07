@@ -7,6 +7,6 @@ class PostAdmin(MarkdownxModelAdmin):
    list_display = ('title', 'slug', 'created_on')
    search_fields = ['title', 'content']
    prepopulated_fields = {'slug': ('title',)}
-
+   fields = ('title', 'slug', 'content', 'banner_image')
 
 admin.site.register(Post, PostAdmin)
