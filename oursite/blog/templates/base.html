@@ -56,32 +56,61 @@
 
             navLinks.forEach((link) => {
                 link.classList.remove('active');
-                if (currentUrl === link.href) {
+
+                // Dynamically activate "Blog Posts" if the current URL matches any post detail page
+                const blogLink = Array.from(navLinks).find(
+                    (nav) => nav.getAttribute('href') === '#blog'
+                );
+
+                const postLinks = document.querySelectorAll('a[href^="{% url \'post_detail\' "'); // Detect dynamic post detail links
+                const isPostPage = Array.from(postLinks).some(
+                    (postLink) => currentUrl === postLink.href
+                );
+
+                if (isPostPage && blogLink) {
+                    blogLink.classList.add('active');
+                } else if (currentUrl === link.href) {
                     link.classList.add('active');
                 }
             });
         });
 
         document.addEventListener('scroll', () => {
-        const sections = document.querySelectorAll('section, footer, header');
-        const navLinks = document.querySelectorAll('.custom-navbar .nav-link');
-        let currentSection = "";
+            const sections = document.querySelectorAll('section, footer, header');
+            const navLinks = document.querySelectorAll('.custom-navbar .nav-link');
+            const currentUrl = window.location.href;
+            let currentSection = "";
 
-        sections.forEach((section) => {
-            const sectionTop = section.offsetTop - 114; // Adjust for navbar height
-            if (window.scrollY >= sectionTop) {
-                currentSection = section.getAttribute('id');
-            }
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop - 114; // Adjust for navbar height
+                if (window.scrollY >= sectionTop) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach((link) => {
+                link.classList.remove('active');
+
+                const blogLink = Array.from(navLinks).find(
+                    (nav) => nav.getAttribute('href') === '#blog'
+                );
+
+                const postLinks = document.querySelectorAll('a[href^="{% url \'post_detail\' "');
+                const isPostPage = Array.from(postLinks).some(
+                    (postLink) => currentUrl === postLink.href
+                );
+
+                if (isPostPage && blogLink) {
+                    blogLink.classList.add('active');
+                } else if (
+                    link.getAttribute('href') === `#${currentSection}` ||
+                    (currentSection === "home" && link.getAttribute('href') === "{% url 'home' %}")
+                ) {
+                    link.classList.add('active');
+                }
+            });
         });
 
-        navLinks.forEach((link) => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${currentSection}` || 
-                (currentSection === "home" && link.getAttribute('href') === "{% url 'home' %}")) {
-                link.classList.add('active');
-            }
-        });
-    });
     </script>
 </body>
 </html>
