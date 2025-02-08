@@ -12,7 +12,7 @@
     <header id="home" class="fixed-top bg-white">
         <div class="container py-1.5">
             <nav class="custom-navbar d-flex justify-content-between w-45 mx-auto">
-                <a class="nav-link" href="{% url 'home' %}#home">Home</a>
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
                 <a class="nav-link" href="#blog">Blog Posts</a>
                 <a class="nav-link" href="#about-us">Members</a>
             </nav>
@@ -50,25 +50,38 @@
     </footer>
 
     <script>
-        document.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section, footer');
+        document.addEventListener('DOMContentLoaded', () => {
             const navLinks = document.querySelectorAll('.custom-navbar .nav-link');
-            let currentSection = "";
-
-            sections.forEach((section) => {
-                const sectionTop = section.offsetTop - 114; // Adjust for navbar height
-                if (window.scrollY >= sectionTop) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
+            const currentUrl = window.location.href;
 
             navLinks.forEach((link) => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === `#${currentSection}`) {
+                if (currentUrl === link.href) {
                     link.classList.add('active');
                 }
             });
         });
+
+        document.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('section, footer, header');
+        const navLinks = document.querySelectorAll('.custom-navbar .nav-link');
+        let currentSection = "";
+
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop - 114; // Adjust for navbar height
+            if (window.scrollY >= sectionTop) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach((link) => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${currentSection}` || 
+                (currentSection === "home" && link.getAttribute('href') === "{% url 'home' %}")) {
+                link.classList.add('active');
+            }
+        });
+    });
     </script>
 </body>
 </html>
