@@ -28,8 +28,11 @@ SECRET_KEY = 'django-insecure-+^rw49d57u9q!w#9@!7#^u*kx9v8ua=osm=6u=2h2_i5ybm_(u
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = [
+    "localhost", 
+    "127.0.0.1", 
+    "cybersentinels.onrender.com"
+]
 
 # Application definition
 
@@ -124,7 +127,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = "/static/"
+
+# This is required for collectstatic to work
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
