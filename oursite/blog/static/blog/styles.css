@@ -41,7 +41,7 @@ header {
 }
 
 .about-us {
-    height: 102vh;
+    max-height: 846px;
     justify-content: center;
     text-align: center;
     background-color: white;
@@ -71,7 +71,7 @@ header {
 .blog-posts {
     padding: 80px 0;
     color: white;
-    height: 105vh;
+    height: 835px;
     border-radius: 50px;
     position: relative;
     z-index: 2;
