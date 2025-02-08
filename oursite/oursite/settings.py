@@ -17,7 +17,7 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -127,15 +127,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = "/static/"
-
-# This is where Django will collect all static files when you run collectstatic
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-
-# Tell Django where to look for static files in your apps
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "blog", "static"),
-]
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']  # Ensure 'static' folder is included
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # Where collectstatic will store files
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
