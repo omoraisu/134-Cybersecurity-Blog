@@ -3,13 +3,13 @@
 {% load static %}
 
 {% block content %}
-    <section class="about-us">
-        <!-- <div class="container align-items-center justify-content-center">
-            <img src="{% static 'blog/images/Frame 67.svg' %}" alt="SVG Image" class="img-fluid">
-        </div> -->
-        <div class="container">
+    <section class="about-us" id="home">
+        <div class="container align-items-center justify-content-center">
+            <img src="{% static 'blog/images/Home-BG.svg' %}" alt="SVG Image" class="img-fluid">
+        </div>
+        <!-- <div class="container">
             <div class="flex-col">
-                <h1 class="title lh-1">
+                <h1 class="title lh-1" style="margin-top: 100px;">
                     <span style="color: #4682B4;">Human Factors</span> <br>
                     in Computer Security
                 </h1>            
@@ -25,10 +25,10 @@
                     <span class="medium-font fw-bold">Human Behavior</span> <br> in Cybersecurity Threats
                 </p>
             </div>
-        </div>
+        </div> -->
     </section>
 
-    <section class="blog-posts" style="background: url('{% static 'blog/images/Frame 59.svg' %}') no-repeat center center; background-size: cover;">
+    <section id="blog" class="blog-posts" style="background: url('{% static 'blog/images/Frame 59.svg' %}') no-repeat center center; background-size: cover;">
         <div class="container">
             <h2 class="medium-font fw-bold">Blog Posts</h2>
             <div class="post-grid my-5">
